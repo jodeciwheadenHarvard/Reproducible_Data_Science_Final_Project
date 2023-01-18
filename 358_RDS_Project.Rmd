@@ -1,0 +1,587 @@
+---
+title: "358_RDS_Project"
+author: "Jodeci Wheaden"
+date: "2023-01-18"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Libraries
+```{r libraries}
+library(ggplot2)
+library(dplyr)
+```
+
+## Set Working Directory
+
+```{r setWD}
+# set working directory
+setwd('/Volumes/GoogleDrive/My Drive/Reproducible Data Science/BST270-Winter2023/individual_project/project')
+```
+
+## Global Variables
+
+```{r global_variables}
+# Initializing city vector
+city = c()
+# Initializing No. of Years Vector
+no.ofYears = c()
+# Initializing Total Vector
+Total = c()
+# Initializing Yearly Avg vector
+YearlyAvg = c()
+```
+
+## Atlanta, GA
+```{r import_Atlanta_Data}
+atlanta_data = read.csv(file = './atlanta_edited.csv')
+```
+
+```{r police_settlement_amts_Atlanta}
+# Found on Read.me in the List of cities FOIA'd and what happened with each table
+number_years_GA = 2020-2015
+total_settlement_GA = sum(atlanta_data$amount_awarded)
+yearly_average_GA = total_settlement_GA/number_years_GA
+
+# Append elements to vector
+city = append(city, "Atlanta, GA")
+no.ofYears = append(no.ofYears, number_years_GA)
+Total = append(Total, total_settlement_GA)
+YearlyAvg = append(YearlyAvg, yearly_average_GA)
+```
+
+## Baltimore, MD
+```{r import_Baltimore_Data}
+baltimore_data = read.csv(file = './baltimore_edited.csv')
+```
+
+```{r police_settlement_amts_Baltimore}
+number_years_MD = 2020-2015
+total_settlement_MD = sum(baltimore_data$amount_awarded)
+yearly_average_MD = total_settlement_MD/number_years_MD
+
+# Append elements to vector
+city = append(city, "Baltimore, MD")
+no.ofYears = append(no.ofYears, number_years_MD)
+Total = append(Total, total_settlement_MD)
+YearlyAvg = append(YearlyAvg, yearly_average_MD)
+```
+
+## Baton Rouge, LA
+```{r import_Baton_Rouge_Data}
+baton_rouge_data = read.csv(file = './baton_rouge_edited.csv')
+```
+
+```{r police_settlement_amts_BatonRouge}
+number_years_LA = 2019-2010 + 1
+total_settlement_LA = sum(baton_rouge_data$amount_awarded)
+yearly_average_LA = total_settlement_LA/number_years_LA
+
+# Append elements to vector
+city = append(city, "Baton Rouge, LA")
+no.ofYears = append(no.ofYears, number_years_LA)
+Total = append(Total, total_settlement_LA)
+YearlyAvg = append(YearlyAvg, yearly_average_LA)
+```
+
+## Boston, MA
+```{r import_Boston_Data}
+boston_data = read.csv(file = './boston_edited.csv')
+```
+
+```{r police_settlement_amts_Boston}
+number_years_MA = 2019-2010 + 1
+total_settlement_MA = sum(boston_data$amount_awarded)
+yearly_average_MA = total_settlement_MA/number_years_MA
+
+# Append elements to vector
+city = append(city, "Boston, MA")
+no.ofYears = append(no.ofYears, number_years_MA)
+Total = append(Total, total_settlement_MA)
+YearlyAvg = append(YearlyAvg, yearly_average_MA)
+```
+
+## Cambridge, MA
+```{r import_Cambridge_Data}
+cambridge_data = read.csv(file = './cambridge_edited.csv')
+```
+
+```{r police_settlement_amts_Cambridge}
+number_years_MA2 = 2019-2010 + 1
+total_settlement_MA2 = sum(cambridge_data$amount_awarded)
+yearly_average_MA2 = total_settlement_MA2/number_years_MA2
+
+# Append elements to vector
+city = append(city, "Cambridge, MA")
+no.ofYears = append(no.ofYears, number_years_MA2)
+Total = append(Total, total_settlement_MA2)
+YearlyAvg = append(YearlyAvg, yearly_average_MA2)
+```
+
+## Charleston, SC
+```{r import_Charleston_Data}
+charleston_data = read.csv(file = './charleston_edited.csv')
+```
+
+```{r police_settlement_amts_Charleston}
+number_years_SC = 2019-2010 + 1
+total_settlement_SC = sum(charleston_data$amount_awarded)
+yearly_average_SC = total_settlement_SC/number_years_SC
+
+# Append elements to vector
+city = append(city, "Charleston, SC")
+no.ofYears = append(no.ofYears, number_years_SC)
+Total = append(Total, total_settlement_SC)
+YearlyAvg = append(YearlyAvg, yearly_average_SC)
+```
+
+## Chicago, IL
+```{r import_Chicago_Data}
+chicago_data = read.csv(file = './chicago_edited.csv')
+```
+
+```{r police_settlement_amts_Chicago}
+number_years_IL = 2019-2010 + 1
+total_settlement_IL = sum(chicago_data$amount_awarded)
+yearly_average_IL = total_settlement_IL/number_years_IL
+
+# Append elements to vector
+city = append(city, "Chicago, IL")
+no.ofYears = append(no.ofYears, number_years_IL)
+Total = append(Total, total_settlement_IL)
+YearlyAvg = append(YearlyAvg, yearly_average_IL)
+```
+
+## Cincinnati, OH
+```{r import_Cincinnati_Data}
+cincinnati_data = read.csv(file = './cincinnati_edited.csv')
+```
+
+```{r police_settlement_amts_Cincinnati}
+number_years_OH = 2020-2010 + 1
+total_settlement_OH = sum(cincinnati_data$amount_awarded)
+yearly_average_OH = total_settlement_OH/number_years_OH
+
+# Append elements to vector
+city = append(city, "Cincinnati, OH")
+no.ofYears = append(no.ofYears, number_years_OH)
+Total = append(Total, total_settlement_OH)
+YearlyAvg = append(YearlyAvg, yearly_average_OH)
+```
+
+## Cleveland, OH
+```{r import_Cleveland_Data}
+cleveland_data = read.csv(file = './cleveland_edited.csv')
+```
+
+```{r police_settlement_amts_Cleveland}
+number_years_OH2 = 2020-2010 + 1
+total_settlement_OH2 = sum(cleveland_data$amount_awarded)
+yearly_average_OH2 = total_settlement_OH2/number_years_OH2
+
+# Append elements to vector
+city = append(city, "Cleveland, OH")
+no.ofYears = append(no.ofYears, number_years_OH2)
+Total = append(Total, total_settlement_OH2)
+YearlyAvg = append(YearlyAvg, yearly_average_OH2)
+```
+
+## Columbia, SC
+```{r import_Columbia_Data}
+columbia_data = read.csv(file = './columbia_edited.csv')
+```
+
+```{r police_settlement_amts_Columbia}
+number_years_SC2 = 2019-2010 + 1
+total_settlement_SC2 = sum(columbia_data$amount_awarded)
+yearly_average_SC2 = total_settlement_SC2/number_years_SC2
+
+# Append elements to vector
+city = append(city, "Columbia, SC")
+no.ofYears = append(no.ofYears, number_years_SC2)
+Total = append(Total, total_settlement_SC2)
+YearlyAvg = append(YearlyAvg, yearly_average_SC2)
+```
+
+## Detroit, MI
+```{r import_Detroit_Data}
+detroit_data = read.csv(file = './detroit_edited.csv')
+```
+
+```{r police_settlement_amts_Detroit}
+number_years_MI = 2019-2010
+total_settlement_MI = sum(detroit_data$amount_awarded)
+yearly_average_MI = total_settlement_MI/number_years_MI
+
+# Append elements to vector
+city = append(city, "Detroit, MI")
+no.ofYears = append(no.ofYears, number_years_MI)
+Total = append(Total, total_settlement_MI)
+YearlyAvg = append(YearlyAvg, yearly_average_MI)
+```
+
+## Fort Lauderdale, FL
+```{r import_FortLauderdale_Data}
+fort_lauderdale_data = read.csv(file = './fort_lauderdale_edited.csv')
+```
+
+```{r police_settlement_amts_FortLauderdale}
+number_years_FL = 2019-2011 + 1
+total_settlement_FL = sum(fort_lauderdale_data$amount_awarded)
+yearly_average_FL = total_settlement_FL/number_years_FL
+
+# Append elements to vector
+city = append(city, "Fort Lauderdale, FL")
+no.ofYears = append(no.ofYears, number_years_FL)
+Total = append(Total, total_settlement_FL)
+YearlyAvg = append(YearlyAvg, yearly_average_FL)
+```
+
+## Indianapolis, IN
+```{r import_Indianapolis_Data}
+indianapolis_data = read.csv(file = './indianapolis_edited.csv')
+```
+
+```{r police_settlement_amts_Indianapolis}
+number_years_IN = 2019-2010 + 1
+total_settlement_IN = sum(indianapolis_data$amount_awarded)
+yearly_average_IN = total_settlement_IN/number_years_IN
+
+# Append elements to vector
+city = append(city, "Indianapolis, IN")
+no.ofYears = append(no.ofYears, number_years_IN)
+Total = append(Total, total_settlement_IN)
+YearlyAvg = append(YearlyAvg, yearly_average_IN)
+```
+
+## Little Rock, AR
+```{r import_LittleRock_Data}
+little_rock_data = read.csv(file = './little_rock_edited.csv')
+```
+
+```{r police_settlement_amts_LittleRock}
+number_years_AR = 2019-2010 + 1
+total_settlement_AR = sum(little_rock_data$amount_awarded)
+yearly_average_AR = total_settlement_AR/number_years_AR
+
+# Append elements to vector
+city = append(city, "Little Rock, AR")
+no.ofYears = append(no.ofYears, number_years_AR)
+Total = append(Total, total_settlement_AR)
+YearlyAvg = append(YearlyAvg, yearly_average_AR)
+```
+
+## Los Angeles, CA
+```{r import_LosAngeles_Data}
+los_angeles_data = read.csv(file = './los_angeles_edited.csv')
+```
+
+```{r police_settlement_amts_LosAngeles}
+number_years_CA = 2019-2010 + 1
+total_settlement_CA = sum(los_angeles_data$amount_awarded)
+yearly_average_CA = total_settlement_CA/number_years_CA
+
+# Append elements to vector
+city = append(city, "Los Angeles, CA")
+no.ofYears = append(no.ofYears, number_years_CA)
+Total = append(Total, total_settlement_CA)
+YearlyAvg = append(YearlyAvg, yearly_average_CA)
+```
+
+## Memphis, TN
+```{r import_Memphis_Data}
+memphis_data = read.csv(file = './memphis_edited.csv')
+```
+
+```{r police_settlement_amts_Memphis}
+number_years_TN = 2019-2013 + 1
+total_settlement_TN = sum(memphis_data$amount_awarded)
+yearly_average_TN = total_settlement_TN/number_years_TN
+
+# Append elements to vector
+city = append(city, "Memphis, TN")
+no.ofYears = append(no.ofYears, number_years_TN)
+Total = append(Total, total_settlement_TN)
+YearlyAvg = append(YearlyAvg, yearly_average_TN)
+```
+
+## Miami, FL
+```{r import_Miami_Data}
+miami_data = read.csv(file = './miami_edited.csv')
+```
+
+```{r police_settlement_amts_Miami}
+number_years_FL = 2020-2010 + 1
+total_settlement_FL = sum(miami_data$amount_awarded)
+yearly_average_FL = total_settlement_FL/number_years_FL
+
+# Append elements to vector
+city = append(city, "Miami, FL")
+no.ofYears = append(no.ofYears, number_years_FL)
+Total = append(Total, total_settlement_FL)
+YearlyAvg = append(YearlyAvg, yearly_average_FL)
+```
+
+## Milwaukee, WI
+```{r import_Milwaukee_Data}
+milwaukee_data = read.csv(file = './milwaukee_edited.csv')
+```
+
+```{r police_settlement_amts_Milwaukee}
+number_years_WI = 2019-2010 + 1
+total_settlement_WI = sum(milwaukee_data$amount_awarded)
+yearly_average_WI = total_settlement_WI/number_years_WI
+
+# Append elements to vector
+city = append(city, "Milwaukee, WI")
+no.ofYears = append(no.ofYears, number_years_WI)
+Total = append(Total, total_settlement_WI)
+YearlyAvg = append(YearlyAvg, yearly_average_WI)
+```
+
+## New Orleans, LA
+```{r import_NewOrleans_Data}
+new_orleans_data = read.csv(file = './new_orleans_edited.csv')
+```
+
+```{r police_settlement_amts_NewOrleans}
+number_years_LA = 2019-2010 + 1
+total_settlement_LA = sum(new_orleans_data$amount_awarded)
+yearly_average_LA = total_settlement_LA/number_years_LA
+
+# Append elements to vector
+city = append(city, "New Orleans, LA")
+no.ofYears = append(no.ofYears, number_years_LA)
+Total = append(Total, total_settlement_LA)
+YearlyAvg = append(YearlyAvg, yearly_average_LA)
+```
+
+## New York, NY
+```{r import_NewYork_Data}
+new_york_data = read.csv(file = './new_york_edited.csv')
+```
+
+```{r police_settlement_amts_NewYork}
+number_years_NY = 2019-2010 + 1
+total_settlement_NY = sum(new_york_data$amount_awarded)
+yearly_average_NY = total_settlement_NY/number_years_NY
+
+# Append elements to vector
+city = append(city, "New York, NY")
+no.ofYears = append(no.ofYears, number_years_NY)
+Total = append(Total, total_settlement_NY)
+YearlyAvg = append(YearlyAvg, yearly_average_NY)
+```
+
+## North Charleston, SC
+```{r import_NorthCharleston_Data}
+north_charleston_data = read.csv(file = './north_charleston_edited.csv')
+```
+
+```{r police_settlement_amts_NorthCharleston}
+number_years_SC3 = 2019-2010 + 1
+total_settlement_SC3 = sum(north_charleston_data$amount_awarded)
+yearly_average_SC3 = total_settlement_SC3/number_years_SC3
+
+# Append elements to vector
+city = append(city, "North Charleston, SC")
+no.ofYears = append(no.ofYears, number_years_SC3)
+Total = append(Total, total_settlement_SC3)
+YearlyAvg = append(YearlyAvg, yearly_average_SC3)
+```
+
+## Orlando, FL
+```{r import_Orlando_Data}
+orlando_data = read.csv(file = './orlando_edited.csv')
+```
+
+```{r police_settlement_amts_Orlando}
+number_years_FL2 = 2018-2010 + 1
+total_settlement_FL2 = sum(orlando_data$amount_awarded)
+yearly_average_FL2 = total_settlement_FL2/number_years_FL2
+
+# Append elements to vector
+city = append(city, "Orlando, FL")
+no.ofYears = append(no.ofYears, number_years_FL2)
+Total = append(Total, total_settlement_FL2)
+YearlyAvg = append(YearlyAvg, yearly_average_FL2)
+```
+
+## Paterson, NJ
+```{r import_Paterson_Data}
+paterson_data = read.csv(file = './paterson_edited.csv')
+```
+
+```{r police_settlement_amts_Paterson}
+number_years_NJ = 2019-2010 + 1
+total_settlement_NJ = sum(paterson_data$amount_awarded)
+yearly_average_NJ = total_settlement_NJ/number_years_NJ
+
+# Append elements to vector
+city = append(city, "Paterson, NJ")
+no.ofYears = append(no.ofYears, number_years_NJ)
+Total = append(Total, total_settlement_NJ)
+YearlyAvg = append(YearlyAvg, yearly_average_NJ)
+```
+
+## Philadelphia, PA
+```{r import_Philadelphia_Data}
+philly_data = read.csv(file = './philly_edited.csv')
+```
+
+```{r police_settlement_amts_Philadelphia}
+number_years_PA = 2019-2009 + 1
+total_settlement_PA = sum(philly_data$amount_awarded)
+yearly_average_PA = total_settlement_PA/number_years_PA
+
+# Append elements to vector
+city = append(city, "Philadelphia, PA")
+no.ofYears = append(no.ofYears, number_years_PA)
+Total = append(Total, total_settlement_PA)
+YearlyAvg = append(YearlyAvg, yearly_average_PA)
+```
+
+## Richmond, VA
+```{r import_Richmond_Data}
+richmond_data = read.csv(file = './richmond_edited.csv')
+```
+
+```{r police_settlement_amts_Richmond}
+number_years_VA = 2019-2010 + 1
+total_settlement_VA = sum(richmond_data$amount_awarded)
+yearly_average_VA = total_settlement_VA/number_years_VA
+
+# Append elements to vector
+city = append(city, "Richmond, VA")
+no.ofYears = append(no.ofYears, number_years_VA)
+Total = append(Total, total_settlement_VA)
+YearlyAvg = append(YearlyAvg, yearly_average_VA)
+```
+
+## Roanoke, VA
+```{r import_Roanoke_Data}
+roanoke_data = read.csv(file = './roanoke_edited.csv')
+```
+
+```{r police_settlement_amts_Roanoke}
+number_years_VA2 = 2019-2010 + 1
+total_settlement_VA2 = sum(roanoke_data$amount_awarded)
+yearly_average_VA2 = total_settlement_VA2/number_years_VA2
+
+# Append elements to vector
+city = append(city, "Roanoke, VA")
+no.ofYears = append(no.ofYears, number_years_VA2)
+Total = append(Total, total_settlement_VA2)
+YearlyAvg = append(YearlyAvg, yearly_average_VA2)
+```
+
+## San Francisco, CA
+```{r import_SanFrancisco_Data}
+san_francisco_data = read.csv(file = './san_francisco_edited.csv')
+```
+
+```{r police_settlement_amts_SanFrancisco}
+number_years_CA2 = 2019-2010 + 1
+total_settlement_CA2 = sum(san_francisco_data$amount_awarded)
+yearly_average_CA2 = total_settlement_CA2/number_years_CA2
+
+# Append elements to vector
+city = append(city, "San Francisco, CA")
+no.ofYears = append(no.ofYears, number_years_CA2)
+Total = append(Total, total_settlement_CA2)
+YearlyAvg = append(YearlyAvg, yearly_average_CA2)
+```
+
+## Springfield, MA
+```{r import_Springfield_Data}
+springfield_data = read.csv(file = './springfield_edited.csv')
+```
+
+```{r police_settlement_amts_Springfield}
+number_years_MA3 = 2020-2006 + 1
+total_settlement_MA3 = sum(springfield_data$amount_awarded)
+yearly_average_MA3 = total_settlement_MA3/number_years_MA3
+
+# Append elements to vector
+city = append(city, "Springfield, MA")
+no.ofYears = append(no.ofYears, number_years_MA3)
+Total = append(Total, total_settlement_MA3)
+YearlyAvg = append(YearlyAvg, yearly_average_MA3)
+```
+
+## St Louis, MO
+```{r import_StLouis_Data}
+stlouis_data = read.csv(file = './stlouis_edited.csv')
+```
+
+```{r police_settlement_amts_StLouis}
+number_years_MO = 2019-2015 + 1
+total_settlement_MO = sum(stlouis_data$amount_awarded)
+yearly_average_MO = total_settlement_MO/number_years_MO
+
+# Append elements to vector
+city = append(city, "St Louis, MO")
+no.ofYears = append(no.ofYears, number_years_MO)
+Total = append(Total, total_settlement_MO)
+YearlyAvg = append(YearlyAvg, yearly_average_MO)
+```
+
+## Washington, DC
+```{r import_Washington_Data}
+DC_data = read.csv(file = './DC_edited.csv')
+```
+
+```{r police_settlement_amts_Washington}
+number_years_DC = 2019-2010 + 1
+total_settlement_DC = sum(DC_data$amount_awarded)
+yearly_average_DC = total_settlement_DC/number_years_DC
+
+# Append elements to vector
+city = append(city, "Washington, DC")
+no.ofYears = append(no.ofYears, number_years_DC)
+Total = append(Total, total_settlement_DC)
+YearlyAvg = append(YearlyAvg, yearly_average_DC)
+```
+
+## Waterbury, CT
+```{r import_Waterbury_Data}
+waterbury_data = read.csv(file = './waterbury_edited.csv')
+```
+
+```{r police_settlement_amts_Waterbury}
+number_years_CT = 2019-2011 + 1
+total_settlement_CT = sum(waterbury_data$amount_awarded)
+yearly_average_CT = total_settlement_CT/number_years_CT
+
+# Append elements to vector
+city = append(city, "Waterbury, CT")
+no.ofYears = append(no.ofYears, number_years_CT)
+Total = append(Total, total_settlement_CT)
+YearlyAvg = append(YearlyAvg, yearly_average_CT)
+```
+
+## Figure 1
+```{r figure1}
+df <- data.frame(city,no.ofYears,Total,YearlyAvg)
+df
+```
+
+## Figure 2
+```{r figure2}
+# Dataframe for settlement amounts per year
+df1 <- cleveland_data %>% 
+  group_by(calendar_year) %>%
+  summarise(sum_settlement = sum(amount_awarded)) %>%
+  filter(calendar_year != 2020)
+df1
+
+# Change calendar_year variable from discrete variable to continuous variable by using factor function
+ggplot(df1, aes(x=factor(calendar_year), y = sum_settlement)) + geom_bar(stat = "identity", fill="darkmagenta") +
+  xlab("Years") +
+  ylab("Total amount paid in settlements") +
+  ggtitle("Cleveland's settlement amounts rose after Rice's death")
+```
+
