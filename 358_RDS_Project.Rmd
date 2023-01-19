@@ -19,7 +19,7 @@ library(dplyr)
 
 ```{r setWD}
 # set working directory
-setwd('/Volumes/GoogleDrive/My Drive/Reproducible Data Science/BST270-Winter2023/individual_project/project')
+setwd('/Volumes/GoogleDrive/My Drive/Reproducible Data Science/Reproducible_Data_Science_Final_Project/data')
 ```
 
 ## Global Variables
@@ -535,7 +535,7 @@ DC_data = read.csv(file = './DC_edited.csv')
 ```
 
 ```{r police_settlement_amts_Washington}
-number_years_DC = 2019-2010 + 1
+number_years_DC = 2019-2010 
 total_settlement_DC = sum(DC_data$amount_awarded)
 yearly_average_DC = total_settlement_DC/number_years_DC
 
@@ -566,6 +566,8 @@ YearlyAvg = append(YearlyAvg, yearly_average_CT)
 ## Figure 1
 ```{r figure1}
 df <- data.frame(city,no.ofYears,Total,YearlyAvg)
+# Used formatC function to add commas to numbers
+df <- df %>% mutate(Total = formatC(round(Total), format = "f", big.mark = ",", drop0trailing = TRUE), YearlyAvg = formatC(round(YearlyAvg), format = "f", big.mark = ",", drop0trailing = TRUE))
 df
 ```
 
